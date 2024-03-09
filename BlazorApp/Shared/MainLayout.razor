@@ -1,0 +1,58 @@
+﻿@inherits LayoutComponentBase
+@using ElectronNET.API
+
+<div class="page dark-mode prevent-select">
+
+@*    <div class="sidebar">
+        <NavMenu />
+    </div>*@
+
+    <main class="full-height full-width">
+        <nav>
+            <div class="custom-left-nav">
+                <span class="custom-nav-link">&#x2630;</span>
+            </div>
+
+            <div class="custom-right-nav">
+                <span class="custom-nav-link nav-grey-hover" @onclick="minimizeWindow">&minus;</span>
+                <span class="custom-nav-link nav-grey-hover">&#128470;</span>
+                <span class="custom-nav-link nav-red-hover" @onclick="closeWindow">&#10006;</span>
+            </div>
+        </nav>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+
+@code{
+    string fullscreenIcon = "&#128470";
+
+    void closeWindow()
+    {
+        foreach (var window in Electron.WindowManager.BrowserWindows)
+        {
+            window.Close();
+        }
+    }
+    void fullscreenWindow()
+    {
+        foreach (var window in Electron.WindowManager.BrowserWindows)
+        {
+
+            window.Maximize();
+            fullscreenIcon = "&#128469";
+
+        }
+    }
+    void minimizeWindow()
+    {
+        foreach (var window in Electron.WindowManager.BrowserWindows)
+        {
+            window.Minimize();
+        }
+    }
+}
+

@@ -1,0 +1,7 @@
+﻿body {
+}
+
+.round-container{
+    background-color: var(--component-background);
+    border-radius: 5px;
+}
