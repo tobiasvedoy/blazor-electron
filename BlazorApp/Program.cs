@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ElectronNET.API;
 using ElectronNET.API.Entities;
-using BlazorApp.Data;
 using DataLibrary;
 
 var builder = WebApplication.CreateBuilder(args);
