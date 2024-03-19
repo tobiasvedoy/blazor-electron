@@ -1,5 +1,7 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+
+
 :root {
     /*light theme*/
     --background: white;
@@ -97,4 +99,23 @@ a, .btn-link {
 
     .blazor-error-boundary::after {
         content: "An error has occurred."
+    }
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--component-background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }

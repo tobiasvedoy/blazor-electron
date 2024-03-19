@@ -5,14 +5,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Components\**" />
+    <Content Remove="Components\**" />
+    <EmbeddedResource Remove="Components\**" />
+    <None Remove="Components\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="ElectronNET.API" Version="23.6.2" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="electron.manifest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\" />
   </ItemGroup>
 </Project>

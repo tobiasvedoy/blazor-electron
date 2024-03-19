@@ -3,9 +3,11 @@
 
 <div class="page dark-mode prevent-select">
 
-@*    <div class="sidebar">
+    @*
+    <div class="sidebar">
         <NavMenu />
-    </div>*@
+    </div>
+    *@
 
     <main class="full-height full-width">
         <nav>
@@ -15,7 +17,7 @@
 
             <div class="custom-right-nav">
                 <span class="custom-nav-link nav-grey-hover" @onclick="minimizeWindow">&minus;</span>
-                <span class="custom-nav-link nav-grey-hover">&#128470;</span>
+                <span class="custom-nav-link nav-grey-hover" @onclick="fullscreenWindow">&#128470;</span>
                 <span class="custom-nav-link nav-red-hover" @onclick="closeWindow">&#10006;</span>
             </div>
         </nav>
@@ -37,14 +39,19 @@
             window.Close();
         }
     }
-    void fullscreenWindow()
+    async void fullscreenWindow()
     {
         foreach (var window in Electron.WindowManager.BrowserWindows)
         {
-
-            window.Maximize();
-            fullscreenIcon = "&#128469";
-
+            bool isMaximized = await window.IsMaximizedAsync();
+            if (isMaximized)
+            {
+                window.Unmaximize();
+            }
+            else
+            {
+                window.Maximize();
+            }
         }
     }
     void minimizeWindow()
@@ -55,4 +62,3 @@
         }
     }
 }
-

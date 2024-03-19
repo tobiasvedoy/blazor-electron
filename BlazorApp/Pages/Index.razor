@@ -1,5 +1,27 @@
 ﻿@page "/"
 
-<div class="round-container full-height full-width p-3">
-	<h1>Last.fm Listener</h1>
+<div class="round-container">
+    <div class="row g-2">
+	    @for(int i = 0; i < 8; i++)
+	    {
+            <div class="col-6 col-lg-3">
+                <div class="card flex-row">
+                    <img class="card-img-left example-card-img-responsive" src=""/>
+                    <div class="card-body">
+                        <h4 class="card-title h5 h4-sm">@(i+1) asda sdasd as dasd asdasdas asa</h4>
+                    </div>
+                </div>
+            </div>
+	    }
+    </div>
+    <h4>@image</h4>
 </div>
+
+@code {
+    string image = "";
+    void OnImageInput(InputFileChangeEventArgs args)
+    {
+        
+    }
+
+}
