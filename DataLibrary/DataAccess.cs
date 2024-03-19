@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace DataLibrary
 {
@@ -25,15 +26,6 @@ namespace DataLibrary
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
                 int rowsAffected = await connection.ExecuteAsync(sql, parameters);
-                return rowsAffected;
-            }
-        }
-
-        public async Task<int> ExecuteProcedure<T>(string procedure, T parameters, string connectionString)
-        {
-            using (IDbConnection connection = new SqlConnection(connectionString))
-            {
-                int rowsAffected = await connection.ExecuteAsync("EXEC "+procedure, parameters);
                 return rowsAffected;
             }
         }

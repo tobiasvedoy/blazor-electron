@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ElectronNET.API;
 using ElectronNET.API.Entities;
- 
+using BlazorApp.Data;
+using DataLibrary;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +14,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddElectron();
 builder.WebHost.UseElectron(args);
+builder.Services.AddSingleton<IDataAccess, DataAccess>();
 
 if (HybridSupport.IsElectronActive)
 {
